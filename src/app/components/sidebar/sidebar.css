@@ -1,4 +1,6 @@
 /* Base Layout Setup */
+/* Only the width changes between states: every child keeps its position and
+   the text is simply clipped by its row, so nothing jumps or re-renders. */
 .sidebar {
     width: 260px;
     height: 100vh;
@@ -14,30 +16,24 @@
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     z-index: 1000;
-    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+    transition: width 0.2s ease;
 }
 
-/* Collapsed Modifiers */
+/* Collapsed Modifier */
 .sidebar.collapsed {
     width: 80px;
-    padding: 24px 12px;
 }
 
-/* Header & Trigger Structures */
+/* Header */
 .sidebar-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 12px;
     min-height: 40px;
     margin-bottom: 32px;
-    position: relative;
-}
-
-.header-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    animation: fadeIn 0.2s ease forwards;
+    padding-left: 8px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .logo-icon {
@@ -46,11 +42,6 @@
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     border-radius: 8px;
     flex-shrink: 0;
-}
-
-.logo-icon.central {
-    margin: 0 auto;
-    animation: fadeIn 0.2s ease forwards;
 }
 
 .logo-text {
@@ -62,26 +53,21 @@
 
 /* Toggle Switch Styling */
 .toggle-btn {
+    position: absolute;
+    top: 31px;
+    right: -13px;
+    z-index: 10;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     color: #64748b;
     width: 26px;
     height: 26px;
-    border-radius: 6px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.sidebar.collapsed .toggle-btn {
-    position: absolute;
-    right: -25px;
-    top: 5px;
-    z-index: 10;
-    border-radius: 50%;
 }
 
 .toggle-btn:hover {
@@ -91,14 +77,14 @@
 }
 
 .toggle-btn svg {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .toggle-btn svg.rotated {
     transform: rotate(180deg);
 }
 
-/* Navigation Lists & Animations */
+/* Navigation Lists */
 .sidebar-nav {
     flex: 1;
 }
@@ -116,34 +102,19 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 12px 16px;
+    padding: 12px 14px;
     color: #64748b;
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
     border-radius: 10px;
-    transition: all 0.2s ease;
     white-space: nowrap;
-}
-
-.sidebar.collapsed .nav-item {
-    justify-content: center;
-    padding: 12px 0;
+    overflow: hidden;
 }
 
 .nav-icon {
     color: #94a3b8;
     flex-shrink: 0;
-    transition: color 0.2s ease;
-}
-
-.nav-label {
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
-
-.sidebar.collapsed .nav-label {
-    display: none;
 }
 
 /* Item States */
@@ -165,17 +136,16 @@
     color: #2563eb;
 }
 
-/* Profile Footer Modification */
+/* Profile Footer */
 .sidebar-footer {
     display: flex;
     align-items: center;
     gap: 12px;
     padding-top: 16px;
+    padding-left: 4px;
     border-top: 1px solid #f1f5f9;
-}
-
-.sidebar.collapsed .sidebar-footer {
-    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .avatar {
@@ -195,8 +165,6 @@
 .user-info {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    animation: fadeIn 0.2s ease forwards;
 }
 
 .user-name {
@@ -208,16 +176,4 @@
 .user-email {
     font-size: 0.75rem;
     color: #64748b;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-4px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
