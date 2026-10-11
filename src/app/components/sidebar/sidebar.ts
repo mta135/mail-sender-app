@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -7,10 +7,4 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './sidebar.css',
   templateUrl: './sidebar.html',
 })
-export class Sidebar {
-  protected readonly isCollapsed = signal(false);
-
-  protected toggleSidebar(): void {
-    this.isCollapsed.update((collapsed) => !collapsed);
-  }
-}
+export class Sidebar {}

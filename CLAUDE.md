@@ -22,7 +22,7 @@ Angular 22 (standalone components, `@angular/build:application` builder), Angula
 The app is an early scaffold: `src/main.ts` bootstraps `App` (`src/app/app.ts`) with `appConfig` (`src/app/app.config.ts`), and `App`'s template renders only `<app-sidebar>`.
 
 - **Routing has no routes yet.** `appConfig` registers `provideRouter([])` only so `Sidebar`'s `RouterLink`s can be injected; there is no `app.routes.ts` and `App` has no `<router-outlet>`. `Sidebar` links to `/dashboard`, `/analytics`, `/projects`, `/settings` — none of which exist. Adding any page means creating the routes, passing them to `provideRouter`, and adding an outlet to `app.html`.
-- **Sidebar is `position: fixed`** (260px wide, 80px when collapsed), and its collapsed state lives in an `isCollapsed` signal local to the component. Main content placed beside it needs its own left offset, and reacting to collapse requires lifting that state out of `Sidebar`.
+- **Sidebar is `position: fixed`** and collapsed (80px) by default; it expands to 260px purely in CSS on `:hover` / keyboard focus, so there is no collapsed state in TypeScript. Main content placed beside it needs its own left offset, and reacting to collapse requires lifting that state out of `Sidebar`.
 - Feature components live under `src/app/components/<name>/`.
 
 ## Conventions

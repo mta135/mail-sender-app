@@ -2,7 +2,7 @@
 /* Only the width changes between states: every child keeps its position and
    the text is simply clipped by its row, so nothing jumps or re-renders. */
 .sidebar {
-    width: 260px;
+    width: 80px;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -15,12 +15,13 @@
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     z-index: 1000;
-    transition: width 0.2s ease;
+    transition: width 0.6s ease;
 }
 
-/* Collapsed Modifier */
-.sidebar.collapsed {
-    width: 80px;
+/* Expanded while the mouse is over it (or a link inside has keyboard focus) */
+.sidebar:hover,
+.sidebar:has(:focus-visible) {
+    width: 260px;
 }
 
 /* Header */
@@ -56,38 +57,6 @@
     /* The envelope sits in the lower part of the icon, so nudge the text down to line up with it */
     position: relative;
     top: 4px;
-}
-
-/* Toggle Switch Styling */
-.toggle-btn {
-    position: absolute;
-    top: 31px;
-    right: -13px;
-    z-index: 10;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    color: #64748b;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.toggle-btn:hover {
-    background: #f8fafc;
-    color: #1e293b;
-    border-color: #cbd5e1;
-}
-
-.toggle-btn svg {
-    transition: transform 0.2s ease;
-}
-
-.toggle-btn svg.rotated {
-    transform: rotate(180deg);
 }
 
 /* Navigation Lists */
