@@ -9,7 +9,6 @@
     left: 0;
     background-color: #ffffff;
     border-right: 1px solid #eef2f6;
-    box-shadow: 4px 0 24px rgba(165, 175, 190, 0.06);
     display: flex;
     flex-direction: column;
     padding: 24px 16px;
@@ -30,7 +29,7 @@
     align-items: center;
     gap: 12px;
     min-height: 40px;
-    margin-bottom: 32px;
+    margin-bottom: 25px;
     padding-left: 8px;
     overflow: hidden;
     white-space: nowrap;
