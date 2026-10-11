@@ -53,6 +53,9 @@
     font-weight: 700;
     color: #1e293b;
     letter-spacing: -0.02em;
+    /* The envelope sits in the lower part of the icon, so nudge the text down to line up with it */
+    position: relative;
+    top: 4px;
 }
 
 /* Toggle Switch Styling */
