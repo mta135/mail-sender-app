@@ -1,18 +1,34 @@
-<aside class="sidebar">
+<!-- The [class.collapsed] dynamically adds the 'collapsed' class based on the signal state -->
+<aside class="sidebar" [class.collapsed]="isCollapsed()">
 
+    <!-- Brand / Header with Toggle Button -->
     <div class="sidebar-header">
-        <div class="logo-icon"></div>
-        <span class="logo-text">AeroCloud</span>
-    </div>
+        @if (isCollapsed()) {
+            <div class="logo-icon central"></div>
+        } @else {
+            <div class="header-brand">
+                <div class="logo-icon"></div>
+                <span class="logo-text">AeroCloud</span>
+            </div>
+        }
 
+        <!-- Collapse Trigger Button -->
+        <button type="button" class="toggle-btn" (click)="toggleSidebar()" aria-label="Toggle Sidebar"
+            [attr.aria-expanded]="!isCollapsed()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                [class.rotated]="isCollapsed()">
+                <path d="m15 18-6-6 6-6" />
+            </svg>
+        </button>
+    </div>
 
     <!-- Navigation Menu -->
     <nav class="sidebar-nav">
         <ul class="nav-list">
             <li>
-                <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
-                    <!-- Lucide: LayoutDashboard -->
-                    <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                <a routerLink="/dashboard" routerLinkActive="active" class="nav-item" title="Dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="nav-icon">
                         <rect width="7" height="9" x="3" y="3" rx="1" />
@@ -24,9 +40,8 @@
                 </a>
             </li>
             <li>
-                <a routerLink="/analytics" routerLinkActive="active" class="nav-item">
-                    <!-- Lucide: BarChart3 -->
-                    <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                <a routerLink="/analytics" routerLinkActive="active" class="nav-item" title="Analytics">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="nav-icon">
                         <path d="M3 3v18h18" />
@@ -38,9 +53,8 @@
                 </a>
             </li>
             <li>
-                <a routerLink="/projects" routerLinkActive="active" class="nav-item">
-                    <!-- Lucide: FolderGit2 -->
-                    <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                <a routerLink="/projects" routerLinkActive="active" class="nav-item" title="Projects">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="nav-icon">
                         <path d="M9 12h6" />
@@ -52,9 +66,8 @@
                 </a>
             </li>
             <li>
-                <a routerLink="/settings" routerLinkActive="active" class="nav-item">
-                    <!-- Lucide: Settings -->
-                    <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                <a routerLink="/settings" routerLinkActive="active" class="nav-item" title="Settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="nav-icon">
                         <path
@@ -67,14 +80,14 @@
         </ul>
     </nav>
 
-
     <!-- User Profile Section Footer -->
     <div class="sidebar-footer">
-        <img src="https://unsplash.com" alt="User profile Avatar" class="avatar" />
-        <div class="user-info">
-            <span class="user-name">Sarah Jenkins</span>
-            <span class="user-email">sarah.j@aero.com</span>
-        </div>
+        <div class="avatar" role="img" aria-label="Sarah Jenkins">SJ</div>
+        @if (!isCollapsed()) {
+            <div class="user-info">
+                <span class="user-name">Sarah Jenkins</span>
+                <span class="user-email">sarah.j@aero.com</span>
+            </div>
+        }
     </div>
-
 </aside>
