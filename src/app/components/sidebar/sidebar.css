@@ -30,7 +30,7 @@
     align-items: center;
     gap: 12px;
     min-height: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding-left: 8px;
     overflow: hidden;
     white-space: nowrap;
@@ -76,8 +76,8 @@
 .nav-item {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 12px 14px;
+    gap: 12px;
+    padding: 8px;
     color: #64748b;
     text-decoration: none;
     font-size: 0.95rem;
@@ -87,8 +87,12 @@
     overflow: hidden;
 }
 
+/* Same 32px box as .logo-icon, and the same left offset, so they line up */
 .nav-icon {
-    color: #94a3b8;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    /* color: #94a3b8; */
     flex-shrink: 0;
 }
 
