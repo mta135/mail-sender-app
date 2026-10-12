@@ -18,7 +18,9 @@
 .wrapper {
     width: 100%;
     min-height: 100vh;
-    padding: 40px 15px 10px;
+    /* 26px top = sidebar padding (24px) + .nav-item padding (2px), so the uploader's
+       top edge lines up with the first sidebar icon */
+    padding: 26px 15px 10px;
     background: #fff;
 }
 

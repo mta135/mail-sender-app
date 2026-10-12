@@ -89,8 +89,8 @@
 
 /* Same 32px box as .logo-icon, and the same left offset, so they line up */
 .nav-icon {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     object-fit: contain;
     /* color: #94a3b8; */
     flex-shrink: 0;
