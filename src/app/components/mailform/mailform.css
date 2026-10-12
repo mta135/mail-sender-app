@@ -18,32 +18,33 @@
 .wrapper {
     width: 100%;
     min-height: 100vh;
-    /* Padding here rather than a margin on the label: the label's top margin
-       collapsed through to the page and made it 10px taller than the viewport */
-    padding: 10px 40px;
+    padding: 40px 15px 10px;
     background: #fff;
 }
 
 .choose_file label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     border: 1px solid #d9d8e3;
     border-radius: 12px;
-    padding: 45px 15px;
-    text-align: center;
+    padding: 35px 15px;
     cursor: pointer;
 }
 
 .choose_file #choose_file {
-    outline: none;
-    opacity: 0;
-    width: 0;
+    display: none;
 }
 
-.choose_file span {
-    font-size: 14px;
-    color: #8178d3;
+/* The `*` rule above would otherwise replace Font Awesome's icon font with Montserrat */
+.choose_file i {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 28px;
+    color: #9a9ca5;
 }
 
-.choose_file label:hover span {
-    text-decoration: underline;
+.choose_file p {
+    font-size: 16px;
+    color: #9a9ca5;
 }
