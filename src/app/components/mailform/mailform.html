@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="choose_file">
     <label for="choose_file">
-      <input type="file" id="choose_file" />
+      <input type="file" id="choose_file" (change)="onFileSelected($event)" />
       <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
       <p>Browse File to Upload</p>
     </label>
