@@ -1,0 +1,11 @@
+/* Page content sits beside the fixed sidebar and follows its width:
+   80px collapsed, 260px while it is expanded (same triggers and timing as sidebar.css) */
+.content {
+    margin-left: 80px;
+    transition: margin-left 0.6s ease;
+}
+
+app-sidebar:hover + .content,
+app-sidebar:has(:focus-visible) + .content {
+    margin-left: 260px;
+}
