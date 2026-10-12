@@ -18,24 +18,17 @@
 .wrapper {
     width: 100%;
     min-height: 100vh;
+    /* Padding here rather than a margin on the label: the label's top margin
+       collapsed through to the page and made it 10px taller than the viewport */
+    padding: 10px 40px;
     background: #fff;
-}
-
-.title {
-    background: #f3f4f8;
-    padding: 15px;
-    font-size: 18px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
 }
 
 .choose_file label {
     display: block;
-    border: 2px dashed #8178d3;
-    padding: 15px;
-    width: calc(100% - 20px);
-    margin: 10px;
+    border: 1px solid #d9d8e3;
+    border-radius: 12px;
+    padding: 45px 15px;
     text-align: center;
     cursor: pointer;
 }
