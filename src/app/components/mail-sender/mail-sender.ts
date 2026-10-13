@@ -1,16 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
-import { FileService } from '../../core/service/file.service';
+import { MailSenderService } from '../../core/service/mail-sender.service';
 
 @Component({
   imports: [],
-  selector: 'app-mailform',
-  styleUrl: './mailform.css',
-  templateUrl: './mailform.html',
+  selector: 'app-mail-sender',
+  styleUrl: './mail-sender.css',
+  templateUrl: './mail-sender.html',
 })
-export class Mailform {
+export class MailSender {
 
 
-  private fileService = inject(FileService);
+  private mailSenderService = inject(MailSenderService);
   selectedFile = signal<File | null>(null);
 
 
@@ -24,24 +24,31 @@ export class Mailform {
 
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
+
       this.selectedFile.set(input.files?.[0] ?? null);
+      this.UploadTempalteFile();
+
+
     }
   }
 
 
-  upload() {
+  UploadTempalteFile(): void {
     const file = this.selectedFile();
     if (!file) return;
 
+    debugger
 
+    this.mailSenderService.UploadFile(file).subscribe({
 
-    this.fileService.UploadFile(file).subscribe({
       next: data => {
 
       },
       error: err => {
+
         this.error.set(typeof err.error === 'string' ? err.error : 'Eroare la procesarea fișierului.');
         this.loading.set(false);
+
       }
     });
   }

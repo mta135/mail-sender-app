@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 
-export class FileService {
+export class MailSenderService {
 
     private apiUrl = 'https://localhost:7191/api/File/MessageData';
 
